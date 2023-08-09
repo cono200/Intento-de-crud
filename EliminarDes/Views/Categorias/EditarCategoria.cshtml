@@ -1,0 +1,27 @@
+﻿@model Proyeto.Models.CategoriumModel;
+@{
+    ViewData["Tittle"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card col-8">
+    <div class="card-header">
+        Crear Categoria
+    </div>
+    <div class="card-body justify-content-center">
+        <form asp-action="Guardar" asp-controller="ControlCategoria" method="post">
+            <input asp-for="IdCategoria" type="hidden" class="form-control" />
+            <div class="col-md-4 mb-3">
+                <label for="staticEmail2">Tipo</label>
+                <input asp-for="Tipo" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="staticEmail2">Descripcion</label>
+                <input asp-for="Descripcion" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <button type="submit" class="btn btn-primary mb-3">Confirmar Categoria</button>
+                <a asp-action="Listar" asp-controller="ControlCategoria" class="btn btn-warning btn-sm">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>

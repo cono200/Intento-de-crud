@@ -1,0 +1,37 @@
+﻿@model List<CategoriumModel>;
+
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-8">
+    <div class="card-header">
+        Lista de Categorias
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-controller="CategoriumModel" class="btn btn-primary btn-sm">Crear nueva categoria</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Descripcion</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Tipo</td>
+                        <td>@item.Descripcion</td>
+                        <td>
+                            <a asp-action="Editar" asp-controller="CategoriumModel" asp-route-IdCategoria="@item.IdCategoria" class="btn btn-warning btn-sm">Editar</a>
+                            <a asp-action="Eliminar" asp-controller="CategoriumModel" asp-route-IdCategoria="@item.IdCategoria" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
